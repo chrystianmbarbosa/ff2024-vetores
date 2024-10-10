@@ -21,7 +21,7 @@ function lerSalarioBruto() {
 function calcularLiquido(lista) {
     let msg = "";
     for (let i = 0; i < lista.length; i++) {
-        msg += `O ${i+1}º salario líquido sem o INSS é R$ ${(lista[i] * 0.88).toFixed(2)} \n`;
+        msg += `O ${i}º salario líquido sem o INSS é R$ ${(lista[i] * 0.88).toFixed(2)} \n`;
     }
     return msg;
 }
