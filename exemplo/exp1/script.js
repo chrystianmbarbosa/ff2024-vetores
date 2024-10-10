@@ -1,23 +1,38 @@
 /*
-Crie um algoritmo que leia 4 notas, 
-mostre as notas e a média na tela.
+Crie um algoritmo que leia um vetor de 10 letras, 
+e diga quantas consoantes foram lidas e mostre essas consoantes.
 */
-let notas = [];
-for (let i = 0; i < 4; i++) {
-    let nota = prompt(`Informe a ${i + 1}ª nota:`);
-    nota = nota.replace(',', '.');
-    while (isNaN(nota) || nota.trim() === "") {
-        alert("Nota inválida!");
-        nota = prompt(`Informe a ${i + 1} nota novamente:`);
+function lerVetor() {
+    let letras = [];
+    for (let i = 0; i < 10; i++) {
+        let letra = prompt(`Digite a ${i + 1} ª letra:`);
+        while (!isNaN(letra) || letra.trim() == '' || letra.length !== 1) {
+            alert("Letra inválida!");
+            letra = prompt(`Digite a ${i + 1} ª letra novamente:`);
+        }
+        letras.push(letra);
     }
-    nota = parseFloat(nota);
-    notas[i] = nota;
+    return letras;
 }
-let soma = 0;
-let media = 0;
-let quant = notas.length;
-for (let j = 0; j < quant; j++) {
-    soma += notas[j];
+
+function exibirConsoantes(letras) {
+    let msg = "";
+    let quantidade = 0;
+    for (let j = 0; j < letras.length; j++) {
+        let letraLida = letras[j].toUpperCase();
+        let vgs = ["A", "E", "I", "O", "U"];
+        if (!(vgs[0] === letraLida) && !(vgs[1] === letraLida) &&
+            !(vgs[2] === letraLida) && !(vgs[3] === letraLida) &&
+            !(vgs[4] === letraLida)) {
+
+            msg += letras[j] + " ";
+            quantidade++;
+        }
+    }
+    return `A quantidade de consoantes é ${quantidade} e as consoantes são elas: ${msg}`;
 }
-media = soma / quant;
-alert(`A média das notas informadas é: ${media.toFixed(2)}`)
+
+let letrasVetor = lerVetor();
+let mensagem = exibirConsoantes(letrasVetor);
+alert(mensagem);
+
