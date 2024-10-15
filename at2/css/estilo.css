@@ -12,7 +12,13 @@ h3 {
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
-
+.esquerda{
+    background-image: url("../img/background.jfif");
+    background-size: cover;
+    width: 300px;
+    border-top-left-radius: 15px; 
+    border-bottom-left-radius: 15px; 
+}
 .container {
     padding: 30px;
     background: rgb(2, 0, 36);
